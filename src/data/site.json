@@ -82,7 +82,7 @@
         { "label": "Gitlens", "logoUrl": "/logos/gitlens.jpg" },
         { "label": "Docker", "logoUrl": "/logos/docker.png" },
         { "label": "Jira", "logoUrl": "/logos/jira.png" },
-        { "label": "Figma", "logoUrl": "/logos/Figma.png" },
+        { "label": "Figma", "logoUrl": "/logos/figma.png" },
         { "label": "Postman", "logoUrl": "/logos/postman.svg" },
         { "label": "hoppscotch", "logoUrl": "/logos/hoppscotch.png" }
       ]
