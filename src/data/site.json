@@ -1,0 +1,241 @@
+{
+  "site": {
+    "name": "Teeraphat Jirapasnitilert",
+    "role": "Full-stack Developer ",
+    "location": "Bangkok, Thailand",
+    "email": "teeraphatjirapasnitilert@gmail.com",
+    "phone": "+66 86-382-5928",
+    "github": "https://github.com/teeraphat0806",
+    "intro": "Full-stack developer specializing in scalable web applications and secure system design. I help turn complex business processes into reliable, production-ready solutions, with hands-on experience delivering real-world projects for industry clients.",
+    "summary": "I focus on turning real business problems into practical digital solutions. In a recent project, I developed an end-to-end system to automate document workflows—such as invoices, quotations, and payroll—reducing manual effort and errors. I also built an OCR-powered pipeline to extract data from purchase order PDFs, enabling automatic form population and significantly improving efficiency.",
+    "strengths": [
+      {
+        "title": "Full-stack Web Development",
+        "description": "Develop scalable, production-grade web applications with a focus on maintainability, performance, and robust system architecture."
+      },
+      {
+        "title": "Cybersecurity",
+        "description": "Secure authentication with JWT & NextAuth, including session management and access control."
+      },
+      {
+        "title": "System Design",
+        "description": "Specialized in transforming business challenges into efficient digital solutions. Developed end-to-end systems to automate document workflows"
+      }
+    ],
+    "profileImage": "/profile/teerapat-profile.svg"
+  },
+  "navLinks": [
+    { "label": "Home", "href": "#home" },
+    { "label": "About", "href": "#about" },
+    { "label": "Skills", "href": "#skills" },
+    { "label": "Projects", "href": "#projects" },
+    { "label": "Experience", "href": "#experience" },
+    { "label": "Certificates", "href": "#certificates" },
+    { "label": "Education", "href": "#education" },
+    { "label": "Contact", "href": "#contact" }
+  ],
+  "socialLinks": [
+    { "label": "GitHub", "href": "https://github.com/teeraphat0806" },
+    { "label": "Email", "href": "mailto:teeraphatjirapasnitilert@gmail.com" }
+  ],
+  "skillGroups": [
+    {
+      "category": "Frontend",
+      "icon": "frontend",
+      "items": [
+        { "label": "Next.js", "logoUrl": "/logos/nextjs.png" },
+        { "label": "React", "logoUrl": "/logos/react.png" },
+        { "label": "TypeScript", "logoUrl": "/logos/typescript.svg" },
+        { "label": "Tailwind CSS", "logoUrl": "/logos/tailwind.png" },
+        { "label": "Vue", "logoUrl": "/logos/vue.png" },
+        { "label": "Nuxt", "logoUrl": "/logos/nuxt.svg" }
+      ]
+    },
+    {
+      "category": "Backend",
+      "icon": "backend",
+      "items": [
+        { "label": "Node.js", "logoUrl": "/logos/nodejs.avif" },
+        { "label": "Bun", "logoUrl": "/logos/bun.png" },
+        { "label": "Prisma", "logoUrl": "/logos/prisma.svg" },
+        { "label": "Typeorm", "logoUrl": "/logos/typeorm.png" },
+        { "label": "NestJs", "logoUrl": "/logos/nestjs.png" },
+        { "label": "Hono", "logoUrl": "/logos/hono.jpg" },
+        { "label": "Zod", "logoUrl": "/logos/zod.jpg" },
+        { "label": "NextAuth.js", "logoUrl": "/logos/nextauth.png" }
+      ]
+    },
+    {
+      "category": "Database",
+      "icon": "database",
+      "items": [
+        { "label": "PostgreSQL", "logoUrl": "/logos/Postgresql.svg" },
+        { "label": "MySQL", "logoUrl": "/logos/mysql.png" },
+        { "label": "Oracle Database", "logoUrl": "/logos/oracle.png" }
+      ]
+    },
+    {
+      "category": "Tools",
+      "icon": "tools",
+      "items": [
+        { "label": "Git", "logoUrl": "/logos/git.png" },
+        { "label": "Gitlens", "logoUrl": "/logos/gitlens.jpg" },
+        { "label": "Docker", "logoUrl": "/logos/docker.png" },
+        { "label": "Jira", "logoUrl": "/logos/jira.png" },
+        { "label": "Figma", "logoUrl": "/logos/Figma.png" },
+        { "label": "Postman", "logoUrl": "/logos/postman.svg" },
+        { "label": "hoppscotch", "logoUrl": "/logos/hoppscotch.png" }
+      ]
+    }
+  ],
+  "certificates": [
+    {
+      "title": "Certiport IT Specialist Cybersecurity",
+      "issuer": "Certiport",
+      "status": "completed",
+      "note": "Focused on foundational cybersecurity skills and practical security concepts.",
+      "image": "/certificates/certiport-it-specialist-cybersecurity.svg",
+      "icon": "/logos/certiport.png"
+    },
+    {
+      "title": "Digital Skills for Workforce Certification",
+      "issuer": "Depa (Digital Economy Promotion Agency)",
+      "status": "completed",
+      "note": "Completed training focused on digital workforce skills and practical applications in modern workplaces.",
+      "image": "/certificates/depa-digital-skills.svg",
+      "icon": "/logos/depa.png"
+    },
+    {
+      "title": "Advanced Digital Transformation Program",
+      "issuer": "Depa (Digital Economy Promotion Agency)",
+      "status": "completed",
+      "note": "Focused on digital transformation strategies, innovation, and applying technology in business processes.",
+      "image": "/certificates/depa-digital-transformation.svg",
+      "icon": "/logos/depa.png"
+    },
+    {
+      "title": "Computer Science Academic Certificate",
+      "issuer": "University / Academic Institution",
+      "status": "completed",
+      "note": "Recognized completion of academic coursework and foundational knowledge in computer science.",
+      "image": "/certificates/computer-science-certificate.svg",
+      "icon": "/logos/kmutnb.jpg"
+    }
+  ],
+  "contactItems": [
+    {
+      "label": "Phone",
+      "value": "+66 86-382-5928",
+      "href": "tel:+66863825928",
+      "icon": "phone"
+    },
+    {
+      "label": "GitHub",
+      "value": "github.com/teeraphat0806",
+      "href": "https://github.com/teeraphat0806",
+      "icon": "github"
+    },
+    {
+      "label": "Gmail",
+      "value": "teeraphatjirapasnitilert@gmail.com",
+      "href": "mailto:teeraphatjirapasnitilert@gmail.com",
+      "icon": "mail"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Integrated Steel Business Management System",
+      "description": "A full-stack web application for managing make-to-order steel business workflows and replacing paper and Excel based processes.",
+      "image": "/projects/steel-system.png",
+      "techStack": ["Next.js", "Prisma", "PostgreSQL", "TypeScript"],
+      "githubUrl": "https://github.com/teeraphat0806/SSW_Project",
+      "liveUrl": "#",
+      "highlights": [
+        "Financial automation for invoices, receipts, billing statements, and quotations.",
+        "AI assisted data entry using OCR combined with an LLM to extract PO data into structured JSON.",
+        "Role based access control for 6 roles, plus payroll, inventory, and financial reporting modules."
+      ]
+    },
+    {
+      "name": "Thai PDF OCR API",
+      "description": "A specialized OCR and AI-powered REST API for extracting and converting Purchase Order (PO) data from various PDF formats into structured JSON, supporting both digital and scanned documents.",
+      "image": "/projects/thai-pdf-ocr.jpg",
+      "techStack": [
+        "FastAPI",
+        "Python",
+        "Tesseract OCR",
+        "OpenRouter API",
+        "Docker"
+      ],
+      "githubUrl": "https://github.com/teeraphat0806/sswocrproduction",
+      "liveUrl": "#",
+      "highlights": [
+        "Extracts Purchase Order (PO) data from both scanned and digital PDFs.",
+        "Uses a smart pipeline with automatic fallback from text extraction to OCR.",
+        "Transforms unstructured PO text into structured JSON using LLM.",
+        "Captures key fields such as header, customer info, and item details.",
+        "Provides metadata including extraction method, page count, and processing time."
+      ]
+    },
+    {
+      "name": "AppCS - Computer Science Faculty Application",
+      "description": "A mobile application for the Faculty of Computer Science (KMUTNB) designed to streamline communication, announcements, and access to student services for students, faculty, and staff.",
+      "image": "/projects/appcs-mobile.png",
+      "techStack": ["Flutter", "Dart", "REST API", "HTTPS"],
+      "githubUrl": "https://github.com/teeraphat0806/AppCs",
+      "liveUrl": "#",
+      "highlights": [
+        "Provides centralized access to faculty news, announcements, and service links.",
+        "Supports student services such as schedules, exams, and advisor information.",
+        "Implements role-based access control (RBAC) for staff content management.",
+        "Enables secure communication via HTTPS with validated server-side input.",
+        "Designed for multi-role usage including students, faculty, and staff."
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "company": "Cyber Kings Consulting Co., Ltd.",
+      "role": "Junior Frontend Developer (Intern / Temporary Staff)",
+      "duration": "March 2025 - June 2025",
+      "location": "Nonthaburi, Thailand",
+      "website": "https://cyberkings.dev/",
+      "responsibilities": [
+        "Developed and maintained frontend features for internal systems and client facing production applications.",
+        "Improved UI components and resolved critical bugs tracked via Jira.",
+        "Collaborated within an Agile team to ensure continuous delivery of system features and updates.",
+        "Integrated frontend components with backend APIs and supported minor backend tasks, including API adjustments and data management.",
+        "Analyzed and optimized UI and UX to enhance performance and overall user experience.",
+        "Coordinated closely with design and backend teams to ensure cross system consistency."
+      ]
+    },
+    {
+      "company": "S.S.W. Steel Center Co., Ltd.",
+      "role": "Full-stack Developer (Industry Collaboration - University Senior Project)",
+      "duration": "2026",
+      "location": "Thailand",
+      "website": "https://data.creden.co/company/general/0115543000617",
+      "responsibilities": [
+        "Delivered a university senior project in collaboration with a business client, developing a full-stack system for real operational use.",
+        "Worked directly with stakeholders to gather requirements and iteratively refine features through sprint-based development.",
+        "Digitized make-to-order workflows, replacing manual and Excel-based processes with a web application.",
+        "Built an OCR and AI pipeline to extract Purchase Order (PO) data into structured JSON.",
+        "Developed financial document modules including invoices, receipts, and quotations.",
+        "Deployed and validated the system in real usage scenarios with continuous feedback from the client.",
+        "Received Best Presentation Award at Science Exhibition Day 2026."
+      ]
+    }
+  ],
+  "education": {
+    "school": "King Mongkut's University of Technology North Bangkok (KMUTNB)",
+    "degree": "Bachelor of Science in Computer Science",
+    "expectedGraduation": "2026",
+    "transcriptUrl": "/transcript/teerapat-transcript.pdf",
+    "coursework": [
+      "Network Security",
+      "Web Development",
+      "Database Systems",
+      "Software Engineering"
+    ]
+  }
+}
