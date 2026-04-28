@@ -45,7 +45,7 @@
       "items": [
         { "label": "Next.js", "logoUrl": "/logos/nextjs.png" },
         { "label": "React", "logoUrl": "/logos/react.png" },
-        { "label": "TypeScript", "logoUrl": "/logos/typescript.svg" },
+        { "label": "TypeScript", "logoUrl": "/logos/typescript.png" },
         { "label": "Tailwind CSS", "logoUrl": "/logos/tailwind.png" },
         { "label": "Vue", "logoUrl": "/logos/vue.png" },
         { "label": "Nuxt", "logoUrl": "/logos/nuxt.svg" }
@@ -69,7 +69,7 @@
       "category": "Database",
       "icon": "database",
       "items": [
-        { "label": "PostgreSQL", "logoUrl": "/logos/Postgresql.svg" },
+        { "label": "PostgreSQL", "logoUrl": "/logos/Postgresql.png" },
         { "label": "MySQL", "logoUrl": "/logos/mysql.png" },
         { "label": "Oracle Database", "logoUrl": "/logos/oracle.png" }
       ]
