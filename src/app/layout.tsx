@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { IBM_Plex_Mono, Manrope } from "next/font/google";
+import { IBM_Plex_Mono, Manrope, Noto_Sans_Thai } from "next/font/google";
 
 import "@/app/globals.css";
+import { LanguageProvider } from "@/components/layout/language-provider";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -13,6 +14,12 @@ const ibmPlexMono = IBM_Plex_Mono({
   variable: "--font-ibm-plex-mono",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
+});
+
+const notoSansThai = Noto_Sans_Thai({
+  variable: "--font-noto-sans-thai",
+  subsets: ["thai"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -42,14 +49,14 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${manrope.variable} ${ibmPlexMono.variable} font-sans antialiased`}
+        className={`${manrope.variable} ${notoSansThai.variable} ${ibmPlexMono.variable} font-sans antialiased`}
       >
         <script
           dangerouslySetInnerHTML={{
-            __html: `(() => { try { const theme = localStorage.getItem('theme'); const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches; const shouldUseDark = theme ? theme === 'dark' : prefersDark; document.documentElement.classList.toggle('dark', shouldUseDark); } catch (error) {} })();`,
+            __html: `(() => { try { const theme = localStorage.getItem('theme'); const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches; const shouldUseDark = theme ? theme === 'dark' : prefersDark; document.documentElement.classList.toggle('dark', shouldUseDark); const locale = localStorage.getItem('locale'); if (locale === 'th' || locale === 'en') { document.documentElement.lang = locale; } } catch (error) {} })();`,
           }}
         />
-        {children}
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );

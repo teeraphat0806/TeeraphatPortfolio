@@ -1,11 +1,18 @@
+"use client";
+
 import { GitHubIcon, MailIcon, PhoneIcon } from "@/components/ui/icons";
 
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { contactItems, site } from "@/data/site";
+import { getLocalizedContent } from "@/data/site";
+import { useLanguage } from "@/components/layout/language-provider";
 
 export function Contact() {
+  const { locale } = useLanguage();
+  const content = getLocalizedContent(locale);
+  const { site } = content;
+
   const iconMap = {
     phone: PhoneIcon,
     github: GitHubIcon,
@@ -18,16 +25,16 @@ export function Contact() {
         <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
           <Reveal>
             <SectionHeading
-              eyebrow="Contact"
-              title="Let's Keep in Touch"
-              description="Stay updated with my latest projects and insights. Feel free to reach out if you have any questions or want to connect."
+              eyebrow={content.sectionHeadings.contact.eyebrow}
+              title={content.sectionHeadings.contact.title}
+              description={content.sectionHeadings.contact.description}
             />
           </Reveal>
 
           <Reveal delay={0.08}>
             <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-soft sm:p-8 dark:border-slate-800 dark:bg-slate-900/80">
               <div className="grid gap-4">
-                {contactItems.map((item, index) => {
+                {content.contactItems.map((item, index) => {
                   const Icon = iconMap[item.icon as keyof typeof iconMap];
 
                   return (
@@ -55,13 +62,13 @@ export function Contact() {
 
               <div className="mt-8 border-t border-slate-200 pt-6 dark:border-slate-800">
                 <p className="text-sm font-medium text-slate-600 dark:text-slate-400">
-                  Location
+                  {content.sectionHeadings.contact.locationLabel}
                 </p>
                 <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
                   {site.location}
                 </p>
                 <p className="mt-4 text-sm font-medium text-slate-600 dark:text-slate-400">
-                  Direct Email
+                  {content.sectionHeadings.contact.directEmailLabel}
                 </p>
                 <a
                   href={`mailto:${site.email}`}

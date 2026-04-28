@@ -1,10 +1,17 @@
+"use client";
+
 import Image from "next/image";
 
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
-import { site } from "@/data/site";
+import { getLocalizedContent } from "@/data/site";
+import { useLanguage } from "@/components/layout/language-provider";
 
 export function Hero() {
+  const { locale } = useLanguage();
+  const content = getLocalizedContent(locale);
+  const { site, hero } = content;
+
   return (
     <section
       id="home"
@@ -21,7 +28,7 @@ export function Hero() {
                   {site.location}
                 </p>
                 <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-600 shadow-sm dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300">
-                  Open to opportunities
+                  {hero.openToOpportunities}
                 </span>
               </div>
 
@@ -74,14 +81,14 @@ export function Hero() {
                 href="#projects"
                 className="inline-flex w-full items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-4 text-sm font-semibold text-slate-950 transition duration-300 hover:-translate-y-0.5 hover:border-slate-400 hover:bg-slate-50 sm:w-auto dark:border-slate-700 dark:bg-slate-900 dark:text-slate-50 dark:hover:border-slate-600 dark:hover:bg-slate-800"
               >
-                View Projects
+                {hero.viewProjects}
               </a>
 
               <a
                 href="#contact"
                 className="inline-flex w-full items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-4 text-sm font-semibold text-slate-950 transition duration-300 hover:-translate-y-0.5 hover:border-slate-400 hover:bg-slate-50 sm:w-auto dark:border-slate-700 dark:bg-slate-900 dark:text-slate-50 dark:hover:border-slate-600 dark:hover:bg-slate-800"
               >
-                Contact Me
+                {hero.contactMe}
               </a>
             </div>
 
@@ -104,7 +111,7 @@ export function Hero() {
                 <div className="grid gap-6 sm:gap-8">
                   <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-slate-300 sm:text-sm">
                     <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono uppercase tracking-[0.22em]">
-                      Developer Profile
+                      {hero.developerProfile}
                     </span>
                     <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">
                       Next.js / TypeScript
@@ -126,26 +133,26 @@ export function Hero() {
                   <div className="grid gap-3 rounded-3xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm sm:grid-cols-3 sm:gap-4 sm:p-5">
                     <div>
                       <p className="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-slate-300">
-                        Focus
+                        {hero.focus}
                       </p>
                       <p className="mt-1 text-sm font-medium text-white">
-                        Product engineering
+                        {hero.productEngineering}
                       </p>
                     </div>
                     <div>
                       <p className="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-slate-300">
-                        Stack
+                        {hero.stack}
                       </p>
                       <p className="mt-1 text-sm font-medium text-white">
-                        Frontend + backend
+                        {hero.frontendBackend}
                       </p>
                     </div>
                     <div>
                       <p className="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-slate-300">
-                        Availability
+                        {hero.availability}
                       </p>
                       <p className="mt-1 text-sm font-medium text-white">
-                        Open to opportunities
+                        {hero.openToOpportunities}
                       </p>
                     </div>
                   </div>

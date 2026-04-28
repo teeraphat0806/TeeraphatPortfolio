@@ -1,23 +1,29 @@
+"use client";
+
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { experience } from "@/data/site";
+import { getLocalizedContent } from "@/data/site";
+import { useLanguage } from "@/components/layout/language-provider";
 
 export function Experience() {
+  const { locale } = useLanguage();
+  const content = getLocalizedContent(locale);
+
   return (
     <section id="experience" className="scroll-mt-24 py-20 sm:py-24">
       <Container>
         <div className="space-y-10">
           <Reveal>
             <SectionHeading
-              eyebrow="Experience"
-              title="Professional experience in a real software production environment."
-              description="The section highlights your internship and the responsibilities you handled in Agile delivery teams."
+              eyebrow={content.sectionHeadings.experience.eyebrow}
+              title={content.sectionHeadings.experience.title}
+              description={content.sectionHeadings.experience.description}
             />
           </Reveal>
 
           <div className="space-y-4">
-            {experience.map((job, index) => (
+            {content.experience.map((job, index) => (
               <Reveal key={`${job.company}-${job.role}`} delay={0.06 * index}>
                 <article className="group relative overflow-hidden rounded-[1.75rem] border border-slate-200 bg-gradient-to-br from-white to-slate-50 p-6 shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-lg dark:border-slate-800 dark:from-slate-900/95 dark:to-slate-900/70 dark:hover:border-slate-700 h-full flex flex-col">
                   <div className="pointer-events-none absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-sky-500 to-cyan-500 opacity-70" />
@@ -59,7 +65,7 @@ export function Experience() {
                         rel="noreferrer"
                         className="inline-flex items-center rounded-xl bg-amber-400 px-4 py-2 text-sm font-semibold text-slate-950 shadow-sm transition hover:bg-amber-300 hover:shadow-md"
                       >
-                        View Company
+                        {content.sectionHeadings.experience.viewCompany}
                       </a>
                     </div>
                   ) : null}

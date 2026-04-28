@@ -6,20 +6,53 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import { Container } from "@/components/ui/container";
 import { cn } from "@/lib/utils";
-import { navLinks, site } from "@/data/site";
+import { getLocalizedContent } from "@/data/site";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
+import { useLanguage } from "@/components/layout/language-provider";
+
+function FlagIcon({ locale }: { locale: "en" | "th" }) {
+  if (locale === "th") {
+    return (
+      <svg
+        viewBox="0 0 36 24"
+        aria-hidden="true"
+        className="h-4 w-6 rounded-sm shadow-sm"
+      >
+        <rect width="36" height="24" rx="3" fill="#da251d" />
+        <rect y="4" width="36" height="16" fill="#ffffff" />
+        <rect y="8" width="36" height="8" fill="#241d4f" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg
+      viewBox="0 0 36 24"
+      aria-hidden="true"
+      className="h-4 w-6 rounded-sm shadow-sm"
+    >
+      <rect width="36" height="24" rx="3" fill="#012169" />
+      <path d="M0 0L36 24M36 0L0 24" stroke="#ffffff" strokeWidth="5" />
+      <path d="M0 0L36 24M36 0L0 24" stroke="#C8102E" strokeWidth="2.5" />
+      <path d="M18 0v24M0 12h36" stroke="#ffffff" strokeWidth="6" />
+      <path d="M18 0v24M0 12h36" stroke="#C8102E" strokeWidth="3" />
+    </svg>
+  );
+}
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
+  const { locale, toggleLocale } = useLanguage();
+  const content = getLocalizedContent(locale);
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/80 backdrop-blur-xl transition-colors dark:border-slate-800/80 dark:bg-slate-950/70">
-      <Container className="flex items-center justify-between py-4">
+      <Container className="flex items-center gap-6 py-4">
         <a href="#home" className="flex items-center gap-3">
           <span className="flex h-10 w-10 overflow-hidden rounded-2xl bg-white shadow-soft ring-1 ring-slate-200 dark:ring-slate-800">
             <Image
-              src={site.profileImage}
-              alt={`${site.name} profile photo`}
+              src={content.site.profileImage}
+              alt={`${content.site.name} profile photo`}
               width={40}
               height={40}
               className="h-10 w-10 object-cover"
@@ -28,19 +61,19 @@ export function Navbar() {
           </span>
           <span className="flex flex-col leading-tight">
             <span className="font-semibold text-slate-950 dark:text-slate-50">
-              {site.name}
+              {content.site.name}
             </span>
             <span className="font-mono text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
-              Portfolio
+              {content.navbar.portfolio}
             </span>
           </span>
         </a>
 
         <nav
-          className="hidden items-center gap-8 lg:flex"
-          aria-label="Primary navigation"
+          className="hidden flex-1 items-center justify-center gap-8 lg:flex"
+          aria-label={content.navbar.primaryNavigation}
         >
-          {navLinks.map((link) => (
+          {content.navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
@@ -51,7 +84,20 @@ export function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="ml-auto hidden shrink-0 items-center gap-3 lg:flex">
+          <button
+            type="button"
+            onClick={toggleLocale}
+            className="inline-flex h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-slate-300 hover:text-slate-950 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-slate-700 dark:hover:text-white"
+            aria-label={
+              locale === "en" ? content.navbar.english : content.navbar.thai
+            }
+          >
+            <FlagIcon locale={locale} />
+            <span className="uppercase tracking-[0.16em]">
+              {locale === "en" ? "EN" : "TH"}
+            </span>
+          </button>
           <ThemeToggle />
         </div>
 
@@ -59,7 +105,7 @@ export function Navbar() {
           type="button"
           className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:border-slate-300 hover:text-slate-950 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-slate-700 dark:hover:text-white lg:hidden"
           aria-expanded={open}
-          aria-label="Toggle navigation menu"
+          aria-label={content.navbar.toggleNavigationMenu}
           onClick={() => setOpen((current) => !current)}
         >
           <span className="flex flex-col gap-1.5">
@@ -95,8 +141,11 @@ export function Navbar() {
             className="border-t border-slate-200 bg-white/95 lg:hidden dark:border-slate-800 dark:bg-slate-950/95"
           >
             <Container className="py-4">
-              <nav className="grid gap-3" aria-label="Mobile navigation">
-                {navLinks.map((link) => (
+              <nav
+                className="grid gap-3"
+                aria-label={content.navbar.mobileNavigation}
+              >
+                {content.navLinks.map((link) => (
                   <a
                     key={link.href}
                     href={link.href}
@@ -109,9 +158,29 @@ export function Navbar() {
               </nav>
               <div className="mt-4 flex items-center justify-between border-t border-slate-200 pt-4 dark:border-slate-800">
                 <span className="text-xs font-mono uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
-                  Theme
+                  {content.navbar.theme}
                 </span>
-                <ThemeToggle />
+                <div className="flex items-center gap-3">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      toggleLocale();
+                      setOpen(false);
+                    }}
+                    className="inline-flex h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-slate-300 hover:text-slate-950 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-slate-700 dark:hover:text-white"
+                    aria-label={
+                      locale === "en"
+                        ? content.navbar.english
+                        : content.navbar.thai
+                    }
+                  >
+                    <FlagIcon locale={locale} />
+                    <span className="uppercase tracking-[0.16em]">
+                      {locale === "en" ? "EN" : "TH"}
+                    </span>
+                  </button>
+                  <ThemeToggle />
+                </div>
               </div>
             </Container>
           </motion.div>

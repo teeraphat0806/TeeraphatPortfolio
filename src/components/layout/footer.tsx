@@ -1,15 +1,22 @@
+"use client";
+
 import { Container } from "@/components/ui/container";
-import { socialLinks, site } from "@/data/site";
+import { getLocalizedContent } from "@/data/site";
+import { useLanguage } from "@/components/layout/language-provider";
 
 export function Footer() {
+  const { locale } = useLanguage();
+  const content = getLocalizedContent(locale);
+
   return (
     <footer className="border-t border-slate-200 bg-white/80 py-8 backdrop-blur dark:border-slate-800 dark:bg-slate-950/70">
       <Container className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
         <p className="text-sm text-slate-600 dark:text-slate-400">
-          © {new Date().getFullYear()} {site.name}. All rights reserved.
+          © {new Date().getFullYear()} {content.site.name}.{" "}
+          {content.footer.rightsReserved}
         </p>
         <div className="flex flex-wrap gap-4">
-          {socialLinks.map((link) => (
+          {content.socialLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}

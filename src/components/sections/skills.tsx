@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import {
@@ -8,7 +10,8 @@ import {
 } from "@/components/ui/icons";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { skillGroups } from "@/data/site";
+import { getLocalizedContent } from "@/data/site";
+import { useLanguage } from "@/components/layout/language-provider";
 
 const skillIcons = {
   frontend: FrontendIcon,
@@ -46,15 +49,18 @@ function getInitials(label: string) {
 }
 
 export function Skills() {
+  const { locale } = useLanguage();
+  const content = getLocalizedContent(locale);
+
   return (
     <section id="skills" className="scroll-mt-24 py-20 sm:py-24">
       <Container>
         <div className="space-y-10">
           <Reveal>
             <SectionHeading
-              eyebrow="Skills"
-              title="A focused stack for building fast, accessible, and scalable products."
-              description="Structured into core areas so the portfolio stays easy to scan for recruiters and hiring managers."
+              eyebrow={content.sectionHeadings.skills.eyebrow}
+              title={content.sectionHeadings.skills.title}
+              description={content.sectionHeadings.skills.description}
             />
           </Reveal>
 
@@ -62,7 +68,7 @@ export function Skills() {
             className="grid gap-6 xl:grid-cols-2"
             style={{ gridAutoRows: "1fr" }}
           >
-            {skillGroups.map((group, index) => (
+            {content.skillGroups.map((group, index) => (
               <Reveal key={group.category} delay={0.05 * index}>
                 <article className="group relative overflow-hidden rounded-[2rem] border border-slate-200 bg-gradient-to-br from-white to-slate-50 p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-xl dark:border-white/10 dark:from-[#171717] dark:to-[#121212] dark:hover:border-white/20 h-full">
                   <div
@@ -90,7 +96,8 @@ export function Skills() {
                             {group.category}
                           </h3>
                           <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
-                            {group.items.length} skills
+                            {group.items.length}{" "}
+                            {locale === "th" ? "ทักษะ" : "skills"}
                           </p>
                         </div>
                       </div>
@@ -98,7 +105,7 @@ export function Skills() {
                       <span
                         className={`rounded-full bg-gradient-to-r ${categoryTheme[group.icon as keyof typeof categoryTheme].accent} px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white shadow-sm`}
                       >
-                        {group.category}
+                        {content.sectionHeadings.skills.itemCaption}
                       </span>
                     </div>
 
@@ -131,7 +138,7 @@ export function Skills() {
                               {item.label}
                             </p>
                             <p className="mt-0.5 text-xs text-slate-500 dark:text-slate-400">
-                              {group.category} skill
+                              {content.sectionHeadings.skills.itemCaption}
                             </p>
                           </div>
                         </div>

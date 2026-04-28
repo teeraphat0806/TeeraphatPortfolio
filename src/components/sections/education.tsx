@@ -1,20 +1,27 @@
+"use client";
+
 import Image from "next/image";
 
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { education } from "@/data/site";
+import { getLocalizedContent } from "@/data/site";
+import { useLanguage } from "@/components/layout/language-provider";
 
 export function Education() {
+  const { locale } = useLanguage();
+  const content = getLocalizedContent(locale);
+  const { education } = content;
+
   return (
     <section id="education" className="scroll-mt-24 py-20 sm:py-24">
       <Container>
         <div className="space-y-10">
           <Reveal>
             <SectionHeading
-              eyebrow="Education"
-              title="Academic background and core coursework."
-              description="Useful context for recruiters who want a quick view of technical foundation and graduation timeline."
+              eyebrow={content.sectionHeadings.education.eyebrow}
+              title={content.sectionHeadings.education.title}
+              description={content.sectionHeadings.education.description}
             />
           </Reveal>
 
@@ -36,7 +43,7 @@ export function Education() {
 
                   <div>
                     <span className="inline-flex rounded-full bg-sky-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-sky-700 dark:bg-sky-500/15 dark:text-sky-300">
-                      University
+                      {content.sectionHeadings.education.universityLabel}
                     </span>
                     <h3 className="mt-3 text-2xl font-semibold tracking-tight text-slate-950 dark:text-slate-50 sm:text-[1.7rem]">
                       {education.school}
@@ -53,7 +60,7 @@ export function Education() {
                   </span>
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
-                      Graduation
+                      {content.sectionHeadings.education.graduationLabel}
                     </p>
                     <p className="mt-0.5 text-sm font-semibold text-slate-950 dark:text-slate-50">
                       {education.expectedGraduation}
@@ -73,7 +80,7 @@ export function Education() {
                     </div>
                     <div>
                       <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
-                        Coursework
+                        {content.sectionHeadings.education.courseworkLabel}
                       </p>
                       <p className="mt-1 text-sm font-medium text-slate-950 dark:text-slate-50">
                         {course}
@@ -90,7 +97,7 @@ export function Education() {
                     download
                     className="inline-flex items-center justify-center rounded-full bg-amber-400 px-5 py-3 text-sm font-semibold text-black shadow-soft transition duration-300 hover:-translate-y-0.5 hover:bg-bg-amber-300 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-200"
                   >
-                    Download Transcript
+                    {content.sectionHeadings.education.downloadTranscriptLabel}
                   </a>
                 </div>
               ) : null}

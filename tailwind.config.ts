@@ -12,7 +12,11 @@ const config: Config = {
         card: "hsl(var(--card))",
       },
       fontFamily: {
-        sans: ["var(--font-manrope)", "sans-serif"],
+        sans: [
+          "var(--font-manrope)",
+          "var(--font-noto-sans-thai)",
+          "sans-serif",
+        ],
         mono: ["var(--font-ibm-plex-mono)", "monospace"],
       },
       boxShadow: {

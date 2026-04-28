@@ -1,21 +1,26 @@
+"use client";
+
 import Image from "next/image";
 
 import { Container } from "@/components/ui/container";
-// certificate icon now comes from JSON via Image
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { certificates } from "@/data/site";
+import { getLocalizedContent } from "@/data/site";
+import { useLanguage } from "@/components/layout/language-provider";
 
 export function Certificates() {
+  const { locale } = useLanguage();
+  const content = getLocalizedContent(locale);
+
   return (
     <section id="certificates" className="scroll-mt-24 py-20 sm:py-24">
       <Container>
         <div className="space-y-10">
           <Reveal>
             <SectionHeading
-              eyebrow="Certificates"
-              title="Certification and ongoing learning."
-              description="A compact section for professional credentials and active certifications."
+              eyebrow={content.sectionHeadings.certificates.eyebrow}
+              title={content.sectionHeadings.certificates.title}
+              description={content.sectionHeadings.certificates.description}
             />
           </Reveal>
 
@@ -23,7 +28,7 @@ export function Certificates() {
             className="grid gap-6 lg:grid-cols-2"
             style={{ gridAutoRows: "1fr" }}
           >
-            {certificates.map((certificate, index) => (
+            {content.certificates.map((certificate, index) => (
               <Reveal key={certificate.title} delay={0.05 * index}>
                 <article className="h-full flex rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-soft dark:border-slate-800 dark:bg-slate-900/80">
                   <div className="grid gap-5 lg:grid-cols-[1fr_1.2fr] lg:items-center h-full w-full">
